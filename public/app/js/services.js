@@ -1,9 +1,29 @@
 ﻿/// <reference path="_references.js" />
-var recoRequestServices = angular.module('cashOrdersServices', ['ngResource']);
+var lloydsRequestServices = angular.module('cashOrdersServices', ['ngResource']);
 
-recoRequestServices.factory('ordersService', [
+lloydsRequestServices.factory('ordersService', [
     '$resource',
     function ($resource) {
         return $resource('/api/orders/');
+    }
+	
+	
+]);
+
+var currentUser = null;
+
+lloydsRequestServices.factory('userService', [
+    function () {
+		var service = {};
+		
+		service.get = function() {
+			return currentUser;
+		};
+		
+		service.put = function(user) {
+			currentUser = user;
+		};
+		
+        return service;
     }
 ]);

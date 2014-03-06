@@ -12,8 +12,12 @@ recoRequestApp.config([
                 templateUrl: '/app/partials/home.html',
                 controller: 'HomeCtrl'
             }).
+			when('/login', {
+                templateUrl: '/app/partials/login.html',
+                controller: 'LoginCtrl'
+            }).
             otherwise({
-                redirectTo: '/home'
+                redirectTo: '/login'
             });
     }
 ]);
