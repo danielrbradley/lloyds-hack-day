@@ -16,6 +16,10 @@ recoRequestApp.config([
                 templateUrl: '/app/partials/login.html',
                 controller: 'LoginCtrl'
             }).
+			when('/create-order', {
+                templateUrl: '/app/partials/create-order.html',
+                controller: 'CreateOrderCtrl'
+            }).
             otherwise({
                 redirectTo: '/login'
             });

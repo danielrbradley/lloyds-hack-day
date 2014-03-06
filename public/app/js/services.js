@@ -10,7 +10,7 @@ lloydsRequestServices.factory('ordersService', [
 	
 ]);
 
-var currentUser = null;
+var currentUser = {username: 'foo' };
 
 lloydsRequestServices.factory('userService', [
     function () {
