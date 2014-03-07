@@ -1,60 +1,135 @@
 <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">Create Cash Order</span>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#/home">
+                            <span class="glyphicon glyphicon-arrow-left"></span>
+                            Back to dashboard
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
 
-	<form ng-submit="create()">
-		<input type="text" ng-model="pennies" /> 
-		1p
-		</br>
+    <form ng-submit="create()">
+        <div class="form-group">
+            <label for="pennies">£{{pennies}} of 1p</label>
+            <input type="range" id="pennies" ng-model="pennies" min="0" max="100" value="0" step="1" class="input" />
+        </div>
 
-		<input type="text" ng-model="twoPennies" /> 
-		2p
-		</br>
-		
-		<input type="text" ng-model="fivePennies" /> 
-		5p
-		</br>
-		
-		<input type="text" ng-model="tenPennies" /> 
-		10p
-		</br>
-		
-		<input type="text" ng-model="twentyPennies" /> 
-		20p
-		</br>
-		
-		<input type="text" ng-model="fiftyPennies" /> 
-		50p
-		</br>
-		
-		<input type="text" ng-model="onePound" /> 
-		£1
-		</br>
-		
-		<input type="text" ng-model="twoPounds" /> 
-		£2
-		</br>
-		
-		<input type="text" ng-model="fivePounds" /> 
-		£5
-		</br>
-		
-		<input type="text" ng-model="tenPounds" /> 
-		£10
-		</br>
-		
-		<input type="text" ng-model="twentyPounds" /> 
-		£20
-		</br>
-		
-		<input type="text" ng-model="fiftyPounds" /> 
-		£50
-		</br>
-		
-		<input type="text" ng-model="branch" />
-		branch
-		</br>
-		
-		<button id="submit">Submit order</button>
-	</form>
+        <div class="form-group">
+            <label for="twoPennies">£{{twoPennies}} of 2p</label>
+            <input type="range" id="twoPennies" ng-model="twoPennies" min="0" max="100" value="0" step="1" class="input" />
+        </div>
 
+        <div class="form-group">
+            <label for="fivePennies">£{{fivePennies}} of 5p</label>
+            <input type="range" id="fivePennies" ng-model="fivePennies" min="0" max="500" value="0" step="5" class="input" />
+        </div>
+
+        <div class="form-group">
+            <label for="tenPennies">£{{tenPennies}} of 10p</label>
+            <input type="range" id="tenPennies" ng-model="tenPennies" min="0" max="500" value="0" step="5" class="input" />
+        </div>
+
+        <div class="form-group">
+            <label for="twentyPennies">£{{twentyPennies}} of 20p</label>
+            <input type="range" id="twentyPennies" ng-model="twentyPennies" min="0" max="1000" value="0" step="10" class="input" />
+        </div>
+
+        <div class="form-group">
+            <label for="fiftyPennies">£{{fiftyPennies}} of 50p</label>
+            <input type="range" id="fiftyPennies" ng-model="fiftyPennies" min="0" max="1000" value="0" step="10" class="input" />
+        </div>
+
+        <div class="form-group">
+            <label for="onePound">£{{onePound}} of £1</label>
+            <input type="range" id="onePound" ng-model="onePound" min="0" max="10000" value="0" step="20" class="input" />
+        </div>
+
+        <div class="form-group">
+            <label for="twoPounds">£{{twoPounds}} of £2</label>
+            <input type="range" id="twoPounds" ng-model="twoPounds" min="0" max="10000" value="0" step="20" class="input" />
+        </div>
+
+        <div class="form-group">
+            <label for="fivePounds">£{{fivePounds}} of £5</label>
+            <input type="range" id="fivePounds" ng-model="fivePounds" min="0" max="1000" value="0" step="5" class="input" />
+        </div>
+
+        <div class="form-group">
+            <label for="tenPounds">£{{tenPounds}} of £10</label>
+            <input type="range" id="tenPounds" ng-model="tenPounds" min="0" max="1000" value="0" step="10" class="input" />
+        </div>
+
+        <div class="form-group">
+            <label for="twentyPounds">£{{twentyPounds}} of £20</label>
+            <input type="range" id="twentyPounds" ng-model="twentyPounds" min="0" max="1000" value="0" step="20" class="input" />
+        </div>
+
+        <div class="form-group">
+            <label for="fiftyPounds">£{{fiftyPounds}} of £50</label>
+            <input type="range" id="fiftyPounds" ng-model="fiftyPounds" min="0" max="1000" value="0" step="50" class="input" />
+        </div>
+
+        <h2>
+            Total: £{{ getTotal() }}.00
+        </h2>
+        <h2>
+            Weight: {{ getWeight() }} kg
+        </h2>
+
+        <hr />
+
+        <div class="form-group">
+            <label for="branch">Pickup from branch</label>
+            <select class="form-control" id="branch" ng-model="branch">
+                <option>185 Baker Street, NW1 6XB</option>
+                <option>25 Camberwell Green, SE5 7AB</option>
+                <option>45 The Broadway, Ealing, W5 5JU</option>
+                <option>72 Fenchurch Street, EC3P 3EH</option>
+                <option>10 Hanover Square, W1S 1HJ</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="requestedDay">Pickup time</label>
+            <select class="form-control" id="requestedDay" ng-model="requestedDay">
+                <option value="07">Today</option>
+                <option value="08">Tomorrow, 9th</option>
+                <option value="10">Monday, 10th</option>
+                <option value="11">Tuesday, 11th</option>
+                <option value="12">Wednesday, 12th</option>
+                <option value="13">Thursday, 13th</option>
+            </select>
+            <select class="form-control" ng-model="requestedTime">
+                <option value="08">8am</option>
+                <option value="09">9am</option>
+                <option value="10">10am</option>
+                <option value="11">11am</option>
+                <option value="12">12pm</option>
+                <option value="13">1pm</option>
+                <option value="14">2pm</option>
+                <option value="15">3pm</option>
+                <option value="16">4pm</option>
+                <option value="17">5pm</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary btn-block btn-lg">Submit order</button>
+    </form>
 
 </div>

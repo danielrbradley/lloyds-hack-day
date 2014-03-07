@@ -1,5 +1,53 @@
 ﻿<div class="container">
-    <h1>{{text}} {{1 + 3}}</h1>
-	<a ng-href = "#/create-order" class="btn btn-default"> Create Cash Order
-	</a>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">Cash Orders Dashboard</span>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#/orders">
+                            View all orders
+                            <span class="glyphicon glyphicon-list-alt"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" ng-click="logout()">
+                            Log Out
+                            <span class="glyphicon glyphicon-log-out"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <a ng-href="#/create-order" class="btn btn-primary btn-block btn-lg" style="margin: 1em 0;">
+        Create Cash Order
+    </a>
+    <div class="panel panel-warning" style="margin: 1em 0;">
+        <div class="panel-heading">
+            Active Orders
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr ng-repeat="order in ordersReadyToCollect">
+                    <td style="cursor: pointer;">
+                        <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+                        Order will be read for collection from
+                        <b>{{order.branch}}</b> <br />
+                        at <b>{{order.availableFrom}}</b>
+                        until <b>{{order.availableTo}}</b>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
