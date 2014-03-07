@@ -96,12 +96,36 @@
 
         <div class="form-group">
             <label for="branch">Pickup from branch</label>
-            <select class="form-control" id="branch" ng-model="branch" required>
+            <select class="form-control" id="branch" ng-model="branch">
                 <option>185 Baker Street, NW1 6XB</option>
                 <option>25 Camberwell Green, SE5 7AB</option>
                 <option>45 The Broadway, Ealing, W5 5JU</option>
                 <option>72 Fenchurch Street, EC3P 3EH</option>
                 <option>10 Hanover Square, W1S 1HJ</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="requestedDay">Pickup time</label>
+            <select class="form-control" id="requestedDay" ng-model="requestedDay">
+                <option>Today</option>
+                <option>Tomorrow, 9th</option>
+                <option>Monday, 10th</option>
+                <option>Tuesday, 11th</option>
+                <option>Wednesday, 12th</option>
+                <option>Thursday, 13th</option>
+            </select>
+            <select class="form-control" ng-model="requestedTime">
+                <option>8am</option>
+                <option>9am</option>
+                <option>10am</option>
+                <option>11am</option>
+                <option>12pm</option>
+                <option>1pm</option>
+                <option>2pm</option>
+                <option>3pm</option>
+                <option>4pm</option>
+                <option>5pm</option>
             </select>
         </div>
 

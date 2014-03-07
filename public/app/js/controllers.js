@@ -42,6 +42,12 @@ controllers.controller('CreateOrderCtrl', [
         $scope.tenPounds = 0;
         $scope.twentyPounds = 0;
         $scope.fiftyPounds = 0;
+
+        $scope.branch = '185 Baker Street, NW1 6XB';
+
+        $scope.requestedDay = 'Tomorrow, 9th';
+        $scope.requestedTime = '9am';
+
         $scope.getTotal = function() {
             return parseInt($scope.pennies) +
                 parseInt($scope.twoPennies) +
