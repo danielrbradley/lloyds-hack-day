@@ -45,8 +45,8 @@ controllers.controller('CreateOrderCtrl', [
 
         $scope.branch = '185 Baker Street, NW1 6XB';
 
-        $scope.requestedDay = 'Tomorrow, 9th';
-        $scope.requestedTime = '9am';
+        $scope.requestedDay = '08';
+        $scope.requestedTime = '09';
 
         $scope.getTotal = function() {
             return parseInt($scope.pennies) +
@@ -89,7 +89,9 @@ controllers.controller('CreateOrderCtrl', [
                 fivePounds: $scope.fivePounds,
                 tenPounds: $scope.tenPounds,
                 twentyPounds: $scope.twentyPounds,
-                fiftyPounds: $scope.fiftyPounds
+                fiftyPounds: $scope.fiftyPounds,
+                branch: $scope.branch,
+                pickupTime: '2014-03-' + $scope.requestedDay + ' ' + $scope.requestedTime + ':00:00',
             };
             var userDataRef = new Firebase('https://amber-fire-7123.firebaseio.com/users/' + userService.get().username);
             var userOrderRef = userDataRef.push(order);
