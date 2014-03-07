@@ -63,7 +63,7 @@ controllers.controller('CreateOrderCtrl', [
                 parseInt($scope.fiftyPounds);
         };
         $scope.getWeight = function () {
-            return (parseInt($scope.pennies) * 0.356) +
+            return Math.round(((parseInt($scope.pennies) * 0.356) +
                 (parseInt($scope.twoPennies) * 0.3565) +
                 (parseInt($scope.fivePennies) * 0.065) +
                 (parseInt($scope.tenPennies) * 0.065) +
@@ -74,7 +74,7 @@ controllers.controller('CreateOrderCtrl', [
                 (parseInt($scope.fivePounds) * 0.00022) +
                 (parseInt($scope.tenPounds) * 0.00011) +
                 (parseInt($scope.twentyPounds) * 0.000055) +
-                (parseInt($scope.fiftyPounds) * 0.000022);
+                (parseInt($scope.fiftyPounds) * 0.000022)) * 1000) / 1000;
         };
         $scope.create = function () {
             var order = {
