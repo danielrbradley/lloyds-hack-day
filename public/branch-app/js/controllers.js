@@ -3,7 +3,7 @@
 controllers.controller('HomeCtrl', [
     '$scope', '$routeParams', '$location', 'userService',
     function ($scope, $routeParams, $location, userService) {
-        $scope.branch = '185 Baker Street, NW1 6XB';
+        $scope.branch = '185 Baker Street';
 
         var branchDataRef = null;
         var listener = null;
@@ -64,6 +64,7 @@ controllers.controller('OrderCtrl', [
             };
             branchOrderDataRef.update(update);
             userOrderDataRef.update(update);
+            $location.path('/');
         };
     }
 ]);

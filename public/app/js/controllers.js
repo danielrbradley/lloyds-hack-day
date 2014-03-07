@@ -23,6 +23,20 @@ controllers.controller('HomeCtrl', [
         userDataRef.on('value', function (snapshot) {
             var values = _.values(snapshot.val());
             _.each(values, function (x) {
+                x.getTotal = function() {
+                    return parseInt(x.pennies) +
+                        parseInt(x.twoPennies) +
+                        parseInt(x.fivePennies) +
+                        parseInt(x.tenPennies) +
+                        parseInt(x.twentyPennies) +
+                        parseInt(x.fiftyPennies) +
+                        parseInt(x.onePound) +
+                        parseInt(x.twoPounds) +
+                        parseInt(x.fivePounds) +
+                        parseInt(x.tenPounds) +
+                        parseInt(x.twentyPounds) +
+                        parseInt(x.fiftyPounds);
+                };
                 try {
                     var pickupDate = new Date(x.pickupTime);
                     x.pickupDate = pickupDate;
@@ -56,7 +70,7 @@ controllers.controller('CreateOrderCtrl', [
         $scope.twentyPounds = 0;
         $scope.fiftyPounds = 0;
 
-        $scope.branch = '185 Baker Street, NW1 6XB';
+        $scope.branch = '185 Baker Street';
 
         $scope.requestedDay = '08';
         $scope.requestedTime = '09';

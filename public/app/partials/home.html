@@ -40,14 +40,16 @@
             <tbody>
                 <tr ng-repeat="order in orders" style="cursor: pointer;">
                     <td ng-show="order.status == 'pending'" class="text-warning">
+                        <img src="ajax-loader.gif" />
                         <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-                        Order pending for <b>{{order.branch}}</b> at
+                        <b>£{{order.getTotal()}}</b> pending for at <b>{{order.branch}}</b> at
                         <b>{{order.pickupDate.getHours()}}:00</b> on the
                         <b>{{order.pickupDate.getDate()}}th</b>
                     </td>
                     <td ng-show="order.status == 'ready'" class="text-success">
+                        <span class="glyphicon glyphicon-ok"></span>
                         <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-                        Order will be ready for collection from
+                        <b>£{{order.getTotal()}}</b> will be ready for collection from
                         <b>{{order.branch}}</b> at 
                         <b>{{order.pickupDate.getHours()}}:00</b> on the
                         <b>{{order.pickupDate.getDate()}}th</b>
