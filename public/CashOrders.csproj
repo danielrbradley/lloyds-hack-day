@@ -67,8 +67,8 @@
     <Content Include="branch-app\js\style.css" />
     <Content Include="branch-app\partials\order.html" />
     <Content Include="branch-app\partials\home.html" />
-    <Content Include="branch.htm" />
-    <Content Include="index.htm" />
+    <Content Include="branch.html" />
+    <Content Include="index.html" />
     <Content Include="js\angular-animate.min.js.map" />
     <Content Include="js\angular-cookies.min.js.map" />
     <Content Include="js\angular-loader.min.js.map" />
