@@ -16,10 +16,14 @@ controllers.controller('LoginCtrl', [
 ]);
 
 controllers.controller('HomeCtrl', [
-    '$scope', '$routeParams', '$location', 'ordersService',
-    function ($scope, $routeParams, $location, ordersService) {
+    '$scope', '$routeParams', '$location', 'userService',
+    function ($scope, $routeParams, $location, userService) {
         $scope.$location = $location;
         $scope.ordersReadyToCollect = [{ branch: '185 Baker Street', availableFrom: 'Sat 8th 10am', availableTo: 'Sat 8th 1pm' }];
+        $scope.logout = function() {
+            userService.put(null);
+            $location.path('/login');
+        };
     }
 ]);
 
