@@ -78,18 +78,19 @@ controllers.controller('CreateOrderCtrl', [
         };
         $scope.create = function () {
             var order = {
-                pennies: $scope.pennies,
-                twoPennies: $scope.twoPennies,
-                fivePennies: $scope.fivePennies,
-                tenPennies: $scope.tenPennies,
-                twentyPennies: $scope.twentyPennies,
-                fiftyPennies: $scope.fiftyPennies,
-                onePound: $scope.onePound,
-                twoPounds: $scope.twoPounds,
-                fivePounds: $scope.fivePounds,
-                tenPounds: $scope.tenPounds,
-                twentyPounds: $scope.twentyPounds,
-                fiftyPounds: $scope.fiftyPounds,
+                status: 'pending',
+                pennies: parseInt($scope.pennies),
+                twoPennies: parseInt($scope.twoPennies),
+                fivePennies: parseInt($scope.fivePennies),
+                tenPennies: parseInt($scope.tenPennies),
+                twentyPennies: parseInt($scope.twentyPennies),
+                fiftyPennies: parseInt($scope.fiftyPennies),
+                onePound: parseInt($scope.onePound),
+                twoPounds: parseInt($scope.twoPounds),
+                fivePounds: parseInt($scope.fivePounds),
+                tenPounds: parseInt($scope.tenPounds),
+                twentyPounds: parseInt($scope.twentyPounds),
+                fiftyPounds: parseInt($scope.fiftyPounds),
                 branch: $scope.branch,
                 pickupTime: '2014-03-' + $scope.requestedDay + ' ' + $scope.requestedTime + ':00:00',
             };
@@ -99,6 +100,14 @@ controllers.controller('CreateOrderCtrl', [
             order.userRef = userOrderRef.toString();
             var branchDataRef = new Firebase('https://amber-fire-7123.firebaseio.com/branches/' + $scope.branch);
             branchDataRef.push(order);
+
+            $location.path('/order-recieved');
         };
+    }
+]);
+
+controllers.controller('OrderRecievedCtrl', [
+    '$scope', '$routeParams', '$location', 'userService',
+    function ($scope, $routeParams, $location, userService) {
     }
 ]);
