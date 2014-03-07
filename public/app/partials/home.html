@@ -43,14 +43,14 @@
                         <span class="glyphicon glyphicon-chevron-right pull-right"></span>
                         Order pending for <b>{{order.branch}}</b> at
                         <b>{{order.pickupDate.getHours()}}:00</b> on the
-                        <b>{{order.pickupDate.getDay()}}th</b>
+                        <b>{{order.pickupDate.getDate()}}th</b>
                     </td>
                     <td ng-show="order.status == 'ready'" class="text-success">
                         <span class="glyphicon glyphicon-chevron-right pull-right"></span>
                         Order will be ready for collection from
                         <b>{{order.branch}}</b> at 
                         <b>{{order.pickupDate.getHours()}}:00</b> on the
-                        <b>{{order.pickupDate.getDay()}}th</b>
+                        <b>{{order.pickupDate.getDate()}}th</b>
                     </td>
                 </tr>
             </tbody>
