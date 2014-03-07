@@ -1,5 +1,32 @@
-﻿<div class="container">
-    <h1>{{text}} {{1 + 3}}</h1>
-	<a ng-href = "#/create-order" class="btn btn-default"> Create Cash Order
-	</a>
+﻿
+<div class="container">
+    <h2>
+        Pending Orders
+    </h2>
+    <div class="form-group">
+        <label for="branch">Branch</label>
+        <select class="form-control" id="branch" ng-model="branch">
+            <option>185 Baker Street, NW1 6XB</option>
+            <option>25 Camberwell Green, SE5 7AB</option>
+            <option>45 The Broadway, Ealing, W5 5JU</option>
+            <option>72 Fenchurch Street, EC3P 3EH</option>
+            <option>10 Hanover Square, W1S 1HJ</option>
+        </select>
+    </div>
+
+    <table class="table">
+        <tr>
+            <td>Total</td>
+            <td>Requested Time</td>
+        </tr>
+        <tr ng-repeat="order in orders">
+            <td>£{{order.getTotal()}}.00</td>
+            <td>{{ order.pickupTime }}</td>
+            <td>
+                <a href="#/branches/{{branch}}/orders/{{order.id}}" class="btn btn-default">Open</a>
+            </td>
+        </tr>
+    </table>
+    <br />
+
 </div>

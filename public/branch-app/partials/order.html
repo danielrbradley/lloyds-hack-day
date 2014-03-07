@@ -1,0 +1,82 @@
+﻿
+<div class="container">
+    <h2>Order</h2>
+
+    <form ng-submit="update()" ng-show="order">
+
+        <table class="table table-condensed">
+            <tbody>
+                <tr>
+                    <td>1p</td>
+                    <td>£{{order.pennies}}</td>
+                </tr>
+                <tr>
+                    <td>2p</td>
+                    <td>£{{order.twoPennies}}</td>
+                </tr>
+                <tr>
+                    <td>5p</td>
+                    <td>£{{order.fivePennies}}</td>
+                </tr>
+                <tr>
+                    <td>10p</td>
+                    <td>£{{order.tenPennies}}</td>
+                </tr>
+                <tr>
+                    <td>20p</td>
+                    <td>£{{order.twentyPennies}}</td>
+                </tr>
+                <tr>
+                    <td>50p</td>
+                    <td>£{{order.fiftyPennies}}</td>
+                </tr>
+                <tr>
+                    <td>£1</td>
+                    <td>£{{order.onePound}}</td>
+                </tr>
+                <tr>
+                    <td>£2</td>
+                    <td>£{{order.twoPounds}}</td>
+                </tr>
+                <tr>
+                    <td>£5</td>
+                    <td>£{{order.fivePounds}}</td>
+                </tr>
+                <tr>
+                    <td>£10</td>
+                    <td>£{{order.tenPounds}}</td>
+                </tr>
+                <tr>
+                    <td>£20</td>
+                    <td>£{{order.twentyPounds}}</td>
+                </tr>
+                <tr>
+                    <td>£50</td>
+                    <td>£{{order.fiftyPounds}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="form-group">
+            <label>Box Number</label>
+            <input type="number" class="form-control" ng-model="order.boxNumber" />
+        </div>
+
+        <div class="form-group">
+            <label>Box PIN</label>
+            <input type="number" class="form-control" ng-model="order.boxPin" />
+        </div>
+
+        <div class="form-group">
+            <label for="status">New Status</label>
+            <select id="status" ng-model="order.status" class="form-control">
+                <option value="pending">Pending</option>
+                <option value="ready">Awaiting Pickup</option>
+                <option value="Overdue">Overdue</option>
+                <option value="Fulfilled">Fulfilled</option>
+            </select>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block">Save</button>
+    </form>
+</div>

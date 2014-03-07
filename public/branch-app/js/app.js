@@ -8,10 +8,16 @@ recoRequestApp.config([
     '$routeProvider',
     function($routeProvider) {
         $routeProvider.
-            when('/branch-home', {
-                templateUrl: '/branch-app/partials/orders-overview.html',
-                controller: 'ViewOrderCtrl'
-            })
-		}
-	
+            when('/', {
+                templateUrl: '/branch-app/partials/home.html',
+                controller: 'HomeCtrl'
+            }).
+            when('/branches/:branch/orders/:id', {
+                templateUrl: '/branch-app/partials/order.html',
+                controller: 'OrderCtrl'
+            }).
+            otherwise({
+                redirectTo: '/'
+            });
+    }
 ]);

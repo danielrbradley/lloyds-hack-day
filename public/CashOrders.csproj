@@ -58,6 +58,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\partials\create-order.html" />
+    <Content Include="app\partials\order-recieved.html" />
+    <Content Include="branch-app\js\app.js" />
+    <Content Include="branch-app\js\controllers.js" />
+    <Content Include="branch-app\js\script.js" />
+    <Content Include="branch-app\js\services.js" />
+    <Content Include="branch-app\js\style.css" />
+    <Content Include="branch-app\partials\create-order.html" />
+    <Content Include="branch-app\partials\home.html" />
+    <Content Include="branch-app\partials\login.html" />
+    <Content Include="branch-app\partials\orders-overview.html" />
+    <Content Include="branch-app\partials\view-order.html" />
+    <Content Include="branch.htm" />
     <Content Include="index.htm" />
     <Content Include="js\angular-animate.min.js.map" />
     <Content Include="js\angular-cookies.min.js.map" />
