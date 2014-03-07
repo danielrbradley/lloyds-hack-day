@@ -38,13 +38,19 @@
         </div>
         <table class="table table-hover">
             <tbody>
-                <tr ng-repeat="order in ordersReadyToCollect">
-                    <td style="cursor: pointer;">
+                <tr ng-repeat="order in orders" style="cursor: pointer;">
+                    <td ng-show="order.status == 'pending'" class="text-warning">
                         <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-                        Order will be read for collection from
-                        <b>{{order.branch}}</b> <br />
-                        at <b>{{order.availableFrom}}</b>
-                        until <b>{{order.availableTo}}</b>
+                        Order pending for <b>{{order.branch}}</b> at
+                        <b>{{order.pickupDate.getHours()}}:00</b> on the
+                        <b>{{order.pickupDate.getDay()}}th</b>
+                    </td>
+                    <td ng-show="order.status == 'ready'" class="text-success">
+                        <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+                        Order will be ready for collection from
+                        <b>{{order.branch}}</b> at 
+                        <b>{{order.pickupDate.getHours()}}:00</b> on the
+                        <b>{{order.pickupDate.getDay()}}th</b>
                     </td>
                 </tr>
             </tbody>

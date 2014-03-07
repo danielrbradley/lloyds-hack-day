@@ -19,8 +19,21 @@ controllers.controller('HomeCtrl', [
     '$scope', '$routeParams', '$location', 'userService',
     function ($scope, $routeParams, $location, userService) {
         $scope.$location = $location;
-        $scope.ordersReadyToCollect = [{ branch: '185 Baker Street', availableFrom: 'Sat 8th 10am', availableTo: 'Sat 8th 1pm' }];
-        $scope.logout = function() {
+        var userDataRef = new Firebase('https://amber-fire-7123.firebaseio.com/users/' + userService.get().username);
+        userDataRef.on('value', function (snapshot) {
+            var values = _.values(snapshot.val());
+            _.each(values, function (x) {
+                try {
+                    var pickupDate = new Date(x.pickupTime);
+                    x.pickupDate = pickupDate;
+                } catch (e) {
+                }
+            });
+            $scope.orders = _.filter(values,
+                function (x) { return x.status === 'pending' || x.status === 'ready'; });
+            $scope.$apply();
+        });
+        $scope.logout = function () {
             userService.put(null);
             $location.path('/login');
         };
@@ -48,7 +61,7 @@ controllers.controller('CreateOrderCtrl', [
         $scope.requestedDay = '08';
         $scope.requestedTime = '09';
 
-        $scope.getTotal = function() {
+        $scope.getTotal = function () {
             return parseInt($scope.pennies) +
                 parseInt($scope.twoPennies) +
                 parseInt($scope.fivePennies) +
